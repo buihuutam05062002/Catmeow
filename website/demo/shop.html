@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/basemain.css">
     <link rel="shortcut icon" href="../logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../javascript/dangkyanđangnhap.js"></script>
 
     <script src="../javascript/bootstrap.min.js"></script>
     <script src="../javascript/jquery-3.6.0.min.js"></script>
@@ -319,7 +320,7 @@
             <button class="normal">Sign up</button>
         </div>
     </section>
-    <footer class="section-p1 row">
+    <footer class="section-p1 d-flex">
         <div class="col1">
             <img src="../img/logo1.png"style="width: 140px; height: 40px; object-fit: cover; alt="" class="logo">
             <h4>Contact</h4>
@@ -372,29 +373,29 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2><b>Đăng Ký Tài Khoản</b></h1>
+                    <h2 class="text-info "><b>Đăng Ký Tài Khoản</b></h1>
                     <button data-dismiss="modal" class="close text-danger" type="button">x</button>
                 </div>
                 <div class="modal-body">
-                    <form action="/" role="form" class="form" id="form">
+                    <form action="/" role="form" class="form" id="signup-form">
                         <div class="form-group row" >
-                            <label for="mtv" class="control-label col-xl-3">Tên Tài khoản</label>
+                            <label for="ttk" class="control-label col-xl-3">Tên Tài khoản</label>
                             <div class="col-md-9">
-                                <input type="text" name="tdn" id="mtv" class="form-control" placeholder="thatinh12t" onblur="">
-                                <span id="tbmtv"  class="text-danger">*</span>
+                                <input type="text" name="ttk" id="ttk" class="form-control" placeholder="thatinh12t" onblur="ktttk()">
+                                <span id="tbttk"  class="text-danger">*</span>
                             </div>
                         </div>
                         <div class="form-group row" >
-                            <label for="ht" class="control-label col-xl-3">Mật khẩu</label>
+                            <label for="mk" class="control-label col-xl-3">Mật khẩu</label>
                             <div class="col-md-9">
-                                <input type="text" name="ht" id="ht" class="form-control" placeholder="tam123456789" onblur="">
-                                <span id="tbht"  class="text-danger">*</span>
+                                <input type="password" name="ht" id="mk" class="form-control" placeholder="tam123456789" onblur="ktmk()">
+                                <span id="tbmk"  class="text-danger">*</span>
                             </div>
                         </div>
                         <div class="form-group row" >
                             <label for="xnmk" class="control-label col-xl-3">Xác Nhận Mật Khẩu</label>
                             <div class="col-md-9">
-                                <input type="text" name="xnmk" id="xnmk" class="form-control" placeholder="" onblur="">
+                                <input type="password" name="xnmk" id="xnmk" class="form-control" placeholder="" onblur="ktxnmk()">
                                 <span id="tbxnmk"  class="text-danger">*</span>
                             </div>
                         </div>
@@ -412,10 +413,22 @@
                                 <span id="tbemail"  class="text-danger">*</span>
                             </div>
                         </div>
-                        <button class="btn-success  btn col-12" type="button" onclick="ketqua();">Dang Ky</button>
+                        <button class="btn-success  btn col-12" type="submit" onclick="">Dang Ky</button>
 
                     </form>
                     
+                </div>
+                <div class="modal-footer">
+                    <div class="alert alert-success mt-3" id="signup-success" style="display: none;">
+                        <p>Bạn đã đăng ký thành công với thông tin sau:</p>
+                        <ul>
+                          <li>Tài khoản: <span id="signup-username"></span></li>
+                          <li>Mật Khẩu: <span id="signup-password"></span></li>
+                          <li>Email: <span id="signup-email"></span></li>
+                          <li>Số điện thoại: <span id="signup-phone"></span></li>
+                          
+                        </ul>
+                      </div>
                 </div>
             </div>
         </div>
@@ -424,26 +437,26 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2><b>Đăng Nhập </b></h1>
+                    <h2 class="text-info"><b>Đăng Nhập </b></h1>
                     <button data-dismiss="modal" class="close text-danger" type="button">x</button>
                 </div>
                 <div class="modal-body">
                     <form action="/" role="form" class="form" id="form">
                         <div class="form-group row" >
-                            <label for="mtv" class="control-label col-xl-3">Tên Tài khoản</label>
+                            <label for="tk" class="control-label col-xl-3">Tài Khoản</label>
                             <div class="col-md-9">
-                                <input type="text" name="tdn" id="mtv" class="form-control" placeholder="thatinh12t" onblur="">
-                                <span id="tbmtv"  class="text-danger">*</span>
+                                <input type="text" name="tk" id="tk" class="form-control" placeholder="thatinh12t" onblur="kttk()">
+                                <span id="tbtk"  class="text-danger">*</span>
                             </div>
                         </div>
                         <div class="form-group row" >
-                            <label for="ht" class="control-label col-xl-3">Mật khẩu</label>
+                            <label for="mk1" class="control-label col-xl-3">Mật khẩu</label>
                             <div class="col-md-9">
-                                <input type="text" name="ht" id="ht" class="form-control" placeholder="tam123456789" onblur="">
-                                <span id="tbht"  class="text-danger">*</span>
+                                <input type="password" name="mk" id="mk1" class="form-control" placeholder="tam123456789" onblur="ktmk1()">
+                                <span id="tbmk1"  class="text-danger">*</span>
                             </div>
                         </div>
-                        <button class="btn-success  btn col-12" type="button" onclick="ketqua();">Dang Nhap</button>
+                        <button class="btn-primary  btn col-12 " type="button" onclick="">Dang Nhap</button>
                     </form>
                     <div class="row text-center p-3">
                        <a href="" class="col-xl-6 text-dark">Quên Mật Khẩu</a>
@@ -457,5 +470,6 @@
     <script src="../website/script.js"></script>
     <script src="../javascript/bootstrap.min.js"></script>
     <script src="../javascript/jquery-3.6.0.min.js"></script>
+    <script src="../javascript/dangkyanđangnhap.js"></script>
 </body>
 </html>
