@@ -281,7 +281,7 @@ box-shadow: 20px 20px 30px rgba(0,0,0,0.2);
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url(../img/banner/b2.jpg);
+    background-image: url(../img/banner/dep.jpg);
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -494,7 +494,7 @@ footer .copyright{
 }
 #page-header h2,
 #page-header p{
-    color: rgb(179, 168, 168);
+    color: #ef4c2d;
 }
 #pagination{
     text-align: center;
@@ -824,6 +824,10 @@ footer .copyright{
     border: 1px solid #e2e9e1;
     padding: 10px;
     font-size: 13px;
+}
+/* modal */
+.modalheader b{
+    color : #088178;
 }
 @media(max-width:799px){
     .section-p1{
